@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "god-mode-4a7e9"
+  },
+  "targets": {
+    "god-mode-4a7e9": {
+      "hosting": {
+        "GodMode": [
+          "god-mode-4a7e9"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+  
+  footer{
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    }
+
+    body {
+      background-color: black;
+    }
+    
+
+    mat-slider ::ng-deep .mat-slider-wrapper
+    ::ng-deep .mat-slider-thumb-label{
+      border-radius:0px;
+      width: 100px;
+      height: 100px;
+      top: -124px;
+      right: -50px;
+    }
+    mat-slider ::ng-deep .mat-slider-wrapper{
+      height:10px
+    }
+    mat-slider ::ng-deep .mat-slider-wrapper{
+      height:10px  
+    }
+    
+    mat-slider ::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper{
+      height: 10px;
+    }
+    
+    mat-slider ::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper ::ng-deep .mat-slider-track-background{
+      height: 10px;
+    }
+    
+    mat-slider ::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper ::ng-deep .mat-slider-track-fill{
+      height: 10px;
+    }
+    

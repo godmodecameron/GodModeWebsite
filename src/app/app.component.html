@@ -1,0 +1,39 @@
+<body>
+  <!-- <mat-grid-list cols="4" rowHeight="3:2" >
+  <div #videosList>
+
+  <div *ngFor="let item of videos" [style.display]="item.show" >
+    <mat-grid-tile><youtube-player (ready)="playerReady($event)" (stateChange)="videoStateChange($event)" startSeconds="{{ item.timeSet }}" videoId="{{ item.id }}"></youtube-player></mat-grid-tile>
+  </div>
+  </div>
+</mat-grid-list> -->
+
+
+        <div fxFlex fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="row wrap" fxLayoutAlign="center">
+            <div
+
+              *ngFor="let item of videos"
+              fxLayout="column"
+              style="padding: 10px;"
+              [style.display]="item.show"
+            >
+
+            <youtube-player (ready)="playerReady($event)" (stateChange)="videoStateChange($event)" startSeconds="{{ item.timeSet }}" videoId="{{ item.id }}"></youtube-player>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+<footer>
+  <!-- <p>{{ startString }}</p> -->
+  <!-- <p>{{ currentTimeString }}</p> -->
+  <!-- <p>{{ endString }}</p> -->
+<mat-slider #matslider thumbLabel [displayWith]="formatLabel" min="{{ epochTimeStart }}" max="{{ epochTimeEnd }}" step="1" value="1" style="width:100%;" (input)="sliderChanged($event)">
+
+</mat-slider>
+</footer>
+</body>
