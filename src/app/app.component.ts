@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { Video } from './models/capitol-riots';
 import { YouTubePlayer } from '@angular/youtube-player';
-
+import { IntroDialogComponentComponent} from './intro-dialog-component/intro-dialog-component.component'
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +11,8 @@ import { YouTubePlayer } from '@angular/youtube-player';
 
 export class AppComponent implements OnInit  {
 
-
+constructor(public dialog: MatDialog){
+}
 
   epochTimeStart = 1609945208
   epochTimeEnd = 1609970400
@@ -18,19 +20,22 @@ export class AppComponent implements OnInit  {
 
   videos: Video[] = [
 
+    { id: "Ru0LbdU1oOQ", precision: "second", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609948552}], show: "block"},   
+    { id: "os0Gp6lTYqU", precision: "second", clips:[{startTime: 58, endTime: 4509, timeClipStartsAt: 1609952313}], show: "block"},
+    { id: "9vMXOO34JGk", precision: "second", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609952509}], show: "block"},
+    { id: "KzWS7gJX5Z8", precision: "second", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609955762}], show: "block"},
+    { id: "cRCEMN-lq_o", precision: "minute", clips:[{startTime: null, endTime: 300, timeClipStartsAt: 1609955530}], show: "block"},
+    { id: "opyL0ksznz4", precision: "second", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609962812}], show: "block"},
+    { id: "iIFxunpMf8I", precision: "minute", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609961077}], show: "block"},
+    { id: "UzGDjf4dWoE", precision: "minute", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609960261}], show: "block"},
+    { id: "SP6T9kGtooM", precision: "few minutes", clips:[{startTime: null, endTime: 110, timeClipStartsAt: 1609960500}], show: "block"},
+    { id: "_cA2l0n5gPE", precision: "few minutes", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609960565}], show: "block"},
+    { id: "wmScqhRsfm8", precision: "minute", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609967140}], show: "block"},
+    { id: "Xm0gPe4MgS0", precision: "minute", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609959889}], show: "block"},
+    
+    { id: "YNtnGRnGyvk", precision: "few minutes", clips:[{startTime: 1740, endTime: 2558, timeClipStartsAt: 1609964765}], show: "block"},
 
-    { id: "Ru0LbdU1oOQ", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609948552}], show: "block"},   //this video is time perfect
-    { id: "os0Gp6lTYqU", clips:[{startTime: 58, endTime: 4509, timeClipStartsAt: 1609952313}], show: "block"},//this video is time perfect
-    { id: "9vMXOO34JGk", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609952509}], show: "block"},//this video is time perfect
-    { id: "KzWS7gJX5Z8", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609955762}], show: "block"},//this video is time perfect
-    { id: "cRCEMN-lq_o", clips:[{startTime: null, endTime: 300, timeClipStartsAt: 1609955530}], show: "block"},//this video is roughly time perfect to the minute
-    { id: "opyL0ksznz4", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609962812}], show: "block"},//this video is time perfect
-    { id: "iIFxunpMf8I", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609961077}], show: "block"},//this video is roughly time perfect to the minute
-    { id: "UzGDjf4dWoE", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609960261}], show: "block"},//this video is roughly time perfect to the minute
-    { id: "SP6T9kGtooM", clips:[{startTime: null, endTime: 110, timeClipStartsAt: 1609960500}], show: "block"},//this video is roughly the right time
-    { id: "_cA2l0n5gPE", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609960565}], show: "block"},//this video is roughly the right time
-    { id: "wmScqhRsfm8", clips:[{startTime: null, endTime: null, timeClipStartsAt: 1609967140}], show: "block"},//this video is roughly time perfect to the minute
-    { id: "6RMROSMPL_s", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609964540}], show: "block"}]; //this video is time perfect
+    { id: "6RMROSMPL_s", precision: "second", clips: [{startTime: null, endTime: null, timeClipStartsAt: 1609964540}], show: "block"}];
 
   title = 'GodMode';
   currentTimeString = ""
@@ -40,6 +45,8 @@ export class AppComponent implements OnInit  {
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
+
+    this.dialog.open(IntroDialogComponentComponent)
   }
 
   formatLabel(value: number | null) {

@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { IntroDialogComponentComponent } from './intro-dialog-component/intro-dialog-component.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IntroDialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +23,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSliderModule,
     MatGridListModule,
     YouTubePlayerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

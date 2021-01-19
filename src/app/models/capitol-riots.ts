@@ -21,6 +21,7 @@
 
       
 export class Video {
+  precision: string;
   id: string;
   clips: Clip[]
   show: string;
